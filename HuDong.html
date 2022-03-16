@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情景互动</title>
+    <link rel="stylesheet" href="css/YeTou.css">
+    <link rel="stylesheet" href="css/HuDong.css">
+</head>
+<body>
+    <div class="YeTou">
+        <div><a href="ShouYe.html" target="_self">急救知识</a></div>
+    </div>
+    <div id="NeiRong">
+        <img src="img/CanTing_blur.png" alt="" class="background">
+        <div class="UIbox">
+            <div class="UI UI_left">
+                <button class="SelectButton" onclick='check(1)'>选项一</button>
+                <button class="SelectButton" onclick='check(2)'>选项二</button>
+                <button class="SelectButton" onclick='check(3)'>选项三</button>
+            </div>
+            <div id="dialog" class="UI UI_bottom" onclick="print_line()">
+                <span id="text">呜......</span>
+                <span id="tips">单击此处继续对话</span>
+            </div>
+            <img src ="img/UI_figure0.png" alt="UI_figure" id="UI_figure" onclick="print_line()">
+
+        </div>
+    </div>
+    <script src="js/HuDong.js"></script>
+</body>
+</html>

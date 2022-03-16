@@ -1,0 +1,140 @@
+/* body{
+    border: unset;
+    margin: unset;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+.YeTou{
+    position: fixed;
+    width: 100%;
+    height: 45px;
+    margin: unset;
+    border: unset;
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: white;
+    box-shadow: 0px 0px 8px #bdbdbd;
+    display: inline-block;
+    z-index: 5;
+}
+.YeTou>div{
+    float: left;
+    width: 130px;
+    height: 100%;
+    line-height: 45px;
+    margin-left: 0px;
+    background-color: #f05f5f;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 3px #9c9c9c;
+    box-shadow: 0px 0px 3px #b9b9b9;
+}
+.YeTou>div>a:link, .YeTou>div>a:visited, .YeTou>div>a:hover, .YeTou>div>a:active{
+    color: white;
+    text-decoration: none;
+} */
+#NeiRong{
+    width: 100%;
+    height: 100%;
+}
+#box{
+    width: 4000px;
+    height: 2569px;
+    position: absolute;
+    margin: unset;
+    border: unset;
+    background-image: url(../img/map.png);
+}
+#YiYuan{left: 1900px;top: 1184px;}
+#CanTing{left: 1200px;top: 800px;}
+#YongChi{left: 2450px;top: 1150px;}
+#Jia{left: 1200px;top: 1670px;}
+#TiYuGuan{left: 2400px;top: 1700px;}
+.building{
+    position: absolute;
+    width: 200px;
+    z-index: 1;
+    transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+}
+.building:hover{
+    animation: rubberBand 1s;
+    -webkit-animation: rubberBand 1s;
+    /* transform: scaleX(120%) scaleY(120%);
+    -moz-transform: scaleX(120%) scaleY(120%);
+    -webkit-transform: scaleX(120%) scaleY(120%); */
+}
+/* #map{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+} */
+@-webkit-keyframes rubberBand {
+    0% {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1)
+    }
+    30% {
+      -webkit-transform: scale3d(1.25, .75, 1);
+      transform: scale3d(1.25, .75, 1)
+    }
+    40% {
+      -webkit-transform: scale3d(0.75, 1.25, 1);
+      transform: scale3d(0.75, 1.25, 1)
+    }
+    50% {
+      -webkit-transform: scale3d(1.15, .85, 1);
+      transform: scale3d(1.15, .85, 1)
+    }
+    65% {
+      -webkit-transform: scale3d(.95, 1.05, 1);
+      transform: scale3d(.95, 1.05, 1)
+    }
+    75% {
+      -webkit-transform: scale3d(1.05, .95, 1);
+      transform: scale3d(1.05, .95, 1)
+    }
+    100% {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1)
+    }
+  }
+  @keyframes rubberBand {
+    0% {
+      -webkit-transform: scale3d(1, 1, 1);
+      -ms-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1)
+    }
+    30% {
+      -webkit-transform: scale3d(1.25, .75, 1);
+      -ms-transform: scale3d(1.25, .75, 1);
+      transform: scale3d(1.25, .75, 1)
+    }
+    40% {
+      -webkit-transform: scale3d(0.75, 1.25, 1);
+      -ms-transform: scale3d(0.75, 1.25, 1);
+      transform: scale3d(0.75, 1.25, 1)
+    }
+    50% {
+      -webkit-transform: scale3d(1.15, .85, 1);
+      -ms-transform: scale3d(1.15, .85, 1);
+      transform: scale3d(1.15, .85, 1)
+    }
+    65% {
+      -webkit-transform: scale3d(.95, 1.05, 1);
+      -ms-transform: scale3d(.95, 1.05, 1);
+      transform: scale3d(.95, 1.05, 1)
+    }
+    75% {
+      -webkit-transform: scale3d(1.05, .95, 1);
+      -ms-transform: scale3d(1.05, .95, 1);
+      transform: scale3d(1.05, .95, 1)
+    }
+    100% {
+      -webkit-transform: scale3d(1, 1, 1);
+      -ms-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1)
+    }
+  }

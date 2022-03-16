@@ -1,0 +1,227 @@
+/* body{
+    background-image: url(../img/map_w1600_blur.png);
+    background-repeat: no-repeat; 
+} */
+.background{
+    position: fixed;
+    height: 150%;
+    left: 50%;
+    top: 40%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+#NeiRong{
+    width: 100%;
+    margin: auto;
+    background-image: linear-gradient(to right,rgb(244, 234, 225) 0%, rgba(255,255,255,10%) 30%, rgba(255,255,255,10%) 70%, rgb(244, 234, 225) 100%);
+    z-index: 0;
+}
+.UIbox{
+    margin: auto;
+    width: 70%;
+    height: 100%;
+    position: relative;
+}
+/* .UI{
+    border: 1px solid white;
+} */
+.UI_left{
+    position: absolute;
+    background-color: #ecdecf;
+    width: 20%;
+    height: 85%;
+    top: 10%;
+    left: 7%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgb(192, 192, 192);
+}
+.SelectButton{
+    float: left;
+    clear: both;
+    height: 30%;
+    width: 90%;
+    margin-left: 5%;
+    margin: 5% 5%;
+    border: unset;
+    border-radius: 20px;
+    word-wrap: break-word;
+    font-size: medium;
+    font-weight: bold;
+    background-color: #ceab87;
+    box-shadow: 0px 0px 3px #997043;
+    transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+.SelectButton:hover{
+    transform: scaleX(105%) scaleY(105%);
+    -moz-transform: scaleX(105%) scaleY(105%);
+    -webkit-transform: scaleX(105%) scaleY(105%);
+    background-color: #997043;
+}
+.UI_bottom{
+    text-align: center;
+    font-size: larger;
+    word-wrap: break-word;
+    position: absolute;
+    background-color: #f6efdf;
+    width: 60%;
+    height: 25%;
+    top: 70%;
+    left: 29%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgb(192, 192, 192);
+    z-index: 1;
+}
+#text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 70%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+#tips{
+    position: absolute;
+    left: 3%;
+    top: 80%;
+    color: gray;
+}
+#UI_figure{
+    position: absolute;
+    height: 55%;
+    left: 40%;
+    top: 20%;
+    z-index: 0;
+    /* content: url(../img/UI_figure0.png); */
+}
+/* #UI_figure:hover{
+    animation: tada 1s;
+    -moz-animation: tada 1s;
+    -webkit-animation: tada 1s;
+} */
+@-webkit-keyframes tada {
+    0% {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1)
+    }
+    10%,20% {
+      -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+      transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg)
+    }
+    30%,50%,70%,90% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+      transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)
+    }
+    40%,60%,80% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+      transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)
+    }
+    100% {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1)
+    }
+}
+@keyframes tada {
+    0% {
+      -webkit-transform: scale3d(1, 1, 1);
+      -ms-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1)
+    }
+    10%,20% {
+      -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+      -ms-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+      transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg)
+    }
+    30%,50%,70%,90% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+      -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+      transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)
+    }
+    40%,60%,80% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+      -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+      transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)
+    }
+    100% {
+      -webkit-transform: scale3d(1, 1, 1);
+      -ms-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1)
+    }
+}
+@-moz-keyframes tada {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1)
+  }
+  10%,20% {
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    -ms-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg)
+  }
+  30%,50%,70%,90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)
+  }
+  40%,60%,80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1)
+  }
+}
+@keyframes fade{
+  0%{opacity: 1;}
+  100%{opacity: 0;}
+}
+@-moz-keyframes fade{
+  0%{opacity: 1;}
+  100%{opacity: 0;}
+}
+@-webkit-keyframes fade{
+  0%{opacity: 1;}
+  100%{opacity: 0;}
+}
+@keyframes appear{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+@-moz-keyframes appear{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+@-webkit-keyframes appear{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+@keyframes cough{
+  0%{opacity: 1;}
+  25%{opacity: 0;}
+  50%{opacity: 1;}
+  75%{opacity: 0;}
+  100%{opacity: 1;}
+}
+@-moz-keyframes cough{
+  0%{opacity: 1;}
+  25%{opacity: 0;}
+  50%{opacity: 1;}
+  75%{opacity: 0;}
+  100%{opacity: 1;}
+}
+@-webkit-keyframes cough{
+  0%{opacity: 1;}
+  25%{opacity: 0;}
+  50%{opacity: 1;}
+  75%{opacity: 0;}
+  100%{opacity: 1;}
+}
