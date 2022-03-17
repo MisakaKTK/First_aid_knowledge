@@ -3,6 +3,7 @@ var box = new Object;
 box = document.getElementById("box");
 box.style.left = -1*(2000 - (window.innerWidth / 2)) + 'px';
 box.style.top = -1*(1284 - (window.innerHeight / 2)) + 'px';
+
 var getXY;
 var ine;
 box.onmousedown = function(ev){
@@ -54,9 +55,9 @@ box.onmousedown = function(ev){
         if(mouse.oldX && mouse.newX && mouse.oldY && mouse.newY){ 
             speed.X = Math.abs(mouse.newX - mouse.oldX)/10;
             speed.Y = Math.abs(mouse.newY - mouse.oldY)/10;
-            var aX = 0;
-            var aY = 0;
-            var a = 30;
+            let aX = 0;
+            let aY = 0;
+            let a = 30;
             mouse.newX - mouse.oldX < 0 ? aX = -1 : aX = 1;
             mouse.newY - mouse.oldY < 0 ? aY = -1 : aY = 1;
             ine = setInterval(function(){inertia()}, 10);
@@ -105,5 +106,85 @@ box.onmousedown = function(ev){
         mouse.newX = ev.clientX;
         mouse.newY = ev.clientY;
     }
+}
+
+var kids = document.getElementsByClassName('kids');
+var printing = false;
+var dialog = document.getElementById('dialog');
+var text = document.getElementById('text');
+var kids_text = new Array();
+kids_text[0] = "摸鱼喽！！摸鱼喽！！";
+kids_text[1] = "姐就是女王！";
+kids_text[2] = "躺平了";
+kids_text[3] = "卷死你们";
+kids_text[4] = "布丁~布丁~布丁~";
+kids_text[5] = "真相只有一个！";
+kids_text[6] = "fuwa~fuwa~fuwa~";
+
+var appear = false;
+function kids_talk(num) {
+        if(!appear){
+            dialog.style.setProperty('animation', 'appear 0.5s');
+            dialog.style.setProperty('-moz-animation', 'appear 0.5s');
+            dialog.style.setProperty('-webkit-animation', 'appear 0.5s');
+            dialog.style.setProperty('opacity', '1');
+        }
+        
+            print_str(kids_text[num], kids_text[num].length, 0);
+            // var print = setInterval(function(){
+            //     if (kids_text[num].substr(0, i)) {
+            //         temp = kids_text[num].substr(0,i);
+            //     } 
+            //     text.innerHTML = temp;
+            //     i++;
+            //     if (i > 50) {
+                    
+            //         console.log('1');
+            //         dialog.style.setProperty('opacity', '0');
+            //         printing = false;
+            //         clearInterval(print);
+            //     }
+            // }, 50);
+       
     
 }
+function print_str(str, time, type) {
+    if(!appear){
+        dialog.style.setProperty('animation', 'appear 0.5s');
+        dialog.style.setProperty('-moz-animation', 'appear 0.5s');
+        dialog.style.setProperty('-webkit-animation', 'appear 0.5s');
+        dialog.style.setProperty('opacity', '1');
+    }
+    if(!printing){
+        printing = true;
+        let temp;
+        let i = 1;
+        var print = setInterval(function(){
+            if (str.substr(0,i)) {
+                temp = str.substr(0,i);
+            }
+            text.innerHTML = temp;
+            i++;
+            if (i > time) {
+                clearInterval(print);
+                printing = false;
+                if(type != 0){
+                    window.open('./HuDong.html', '_self');
+                }
+            }
+        }, 40);
+    }
+}
+// var 序号 = 初始编号;
+// function 切换图片(){
+//     图片.scr = 'xxxx'+序号+'.后缀名';
+//     序号++;
+// }
+// var i;
+// var timer = setInterval(function(){
+//     i++;
+//     if(i>10){//100ms*10=1s，能改成自己想要的数值
+//         clearInterval(timer);
+//         //在这里写等待时间过后要执行的操作
+//     }
+// }, 100);//100指每隔100毫秒调用一次自己，能改

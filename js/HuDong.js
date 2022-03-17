@@ -296,7 +296,6 @@ function perform() {
     figure.style.setProperty('-webkit-animation', 'cough 2s');
     //咳嗽完，发抖一下
     figure.addEventListener("animationend", function name() {
-            flag1 = false;
             figure.style.removeProperty('animation');
             figure.style.removeProperty('-moz-animation');
             figure.style.removeProperty('-webkit-animation');
@@ -310,7 +309,6 @@ function perform() {
             dialog.style.setProperty('-webkit-animation', 'tada 1s');
             //发抖完后
             dialog.addEventListener("animationend", function name() {
-                    flag2 =false;
                     SelectButton[0].style.removeProperty('animation');
                     SelectButton[0].style.removeProperty('-moz-animation');
                     SelectButton[0].style.removeProperty('-webkit-animation');

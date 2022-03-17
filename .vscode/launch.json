@@ -6,8 +6,8 @@
             "name": "Launch localhost",
             "type": "chrome",
             "request": "launch",
-            // "file": "${workspaceRoot}/ShouYe.html",
-            "file": "${workspaceRoot}/HuDong.html",
+            "file": "${workspaceRoot}/ShouYe.html",
+            //"file": "${workspaceRoot}/HuDong.html",
             "runtimeExecutable": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\Chrome.exe",
             //"url": "http://localhost/mypage.html",
             "webRoot": "${workspaceFolder}/wwwroot"

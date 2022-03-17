@@ -15,12 +15,22 @@
     <div id="NeiRong">
         <div id="box" draggable="true">
             <img src="img/YiYuan.png" alt="医院" class="building" id="YiYuan">
-            <a href="HuDong.html"><img src="img/CanTing.png" alt="餐厅" class="building" id="CanTing"></a>
+            <img src="img/CanTing.png" alt="餐厅" class="building" id="CanTing" onclick="print_str('正在前往餐厅', 80, 1)">
             <img src="img/YongChi.png" alt="泳池" class="building" id="YongChi">
             <img src="img/Jia.png" alt="家" class="building" id="Jia">
             <img src="img/TiYuGuan.png" alt="体育馆" class="building" id="TiYuGuan">
+            <img src="img/kids1.png" alt="kids1" class="kids" id="kid1" onclick="kids_talk(0)">
+            <img src="img/kids2.png" alt="kids2" class="kids" id="kid2" onclick="kids_talk(1)">
+            <img src="img/kids3.png" alt="kids3" class="kids" id="kid3" onclick="kids_talk(2)">
+            <img src="img/kids4.png" alt="kids4" class="kids" id="kid4" onclick="kids_talk(3)">
+            <img src="img/kids5.png" alt="kids5" class="kids" id="kid5" onclick="kids_talk(4)">
+            <img src="img/kids6.png" alt="kids6" class="kids" id="kid6" onclick="kids_talk(5)">
+            <img src="img/kids7.png" alt="kids7" class="kids" id="kid7" onclick="kids_talk(6)">
             <!-- <img id="map" src="../img/map.png" alt="map"> -->
         </div> 
+    </div>
+    <div id="dialog">
+        <span id="text">dialog</span>
     </div>
     <script src="js/ShouYe.js"></script>
 </body>
