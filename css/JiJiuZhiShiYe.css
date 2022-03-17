@@ -1,0 +1,321 @@
+body{
+    border: unset;
+    margin: unset;
+    height: auto;
+    background-color:#f4eae1;
+}
+.YeTou{
+    width: 100%;
+    height: 45px;
+    margin: unset;
+    border: unset;
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: white;
+    box-shadow: 0px 0px 8px #bdbdbd;
+    display: inline-block;
+}
+.YeTou>div{
+    float: left;
+    width: 130px;
+    height: 100%;
+    line-height: 45px;
+    margin-left: 0px;
+    background-color: #f05f5f;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 3px #9c9c9c;
+    box-shadow: 0px 0px 3px #b9b9b9;
+}
+.YeTou>div>a:link, .YeTou>div>a:visited, .YeTou>div>a:hover, .YeTou>div>a:active{
+    color: white;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: '庞门正道细线体'; 
+    src: url('../fonts/庞门正道细线体.ttf');
+}
+
+.banner{
+    width: 80%;
+    margin: auto;
+    }
+
+
+.left{
+   width: 40%;
+   height: auto;
+   margin: auto;
+   float: left;
+   font-family: '庞门正道细线体'; 
+   color: #2c2d48;
+
+}
+
+.right{
+   width: 50%;
+   height: auto;
+   float: right;
+   margin: auto;
+   padding-top: 130px;
+}
+
+.BiaoTi{
+    height: auto;
+    padding-top: 150px;
+    
+}
+
+
+.GaiKuo{
+    font-size: 1.4em;
+    letter-spacing: 5px;
+
+}
+
+
+.DiErYe{
+    clear: both;
+    width: 80%;
+    margin: auto;
+}
+
+.JianTou{
+    width: 8%;
+    margin: auto;
+}
+
+.BiaoTi2{
+    padding-top: 50px;
+    float: none;
+    margin: auto;
+    text-align: center;
+    font-family: '庞门正道细线体'; 
+
+}
+
+.DaoHang{
+    font-size: 4em;
+}
+
+.WenBen{
+    font-size: 2.5em;
+}
+
+
+/*导航栏*/
+
+.DaoHangLan{
+    /* 弹性盒子布局 水平垂直居中 文字居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.wrapper{
+    /* 设置宽度为60%窗口宽度 */
+    width: 60vw;
+    height: 60px;
+    line-height: 60px;
+    background-color: #ecdecf;
+    /* 盒子阴影 */
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.25);
+    border-radius: 50px;
+    font-family: '庞门正道细线体'; 
+    overflow: hidden;
+}
+.wrapper nav{
+    display: flex;
+    position: relative;
+}
+.wrapper nav label{
+    flex:1;
+    width:100%;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+.wrapper nav label a{
+    position: relative;
+    z-index: -1;
+    color: #333;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+}
+.wrapper nav label a i{
+    font-size: 25px;
+    margin: 0px 7px;
+}
+.wrapper nav input{
+    display: none;
+}
+.wrapper nav .tab{
+    position: absolute;
+    height: 100%;
+    width: 25%;
+    left: 0px;
+    bottom: 0px;
+    /* 渐变背景 自左向右 */
+    background: linear-gradient(to right, #f09819, #ff5858);
+    border-radius: 50px;
+    /* 添加动画过渡 贝塞尔曲线 */
+    transition: 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+
+.wrapper nav #home:checked ~ label.home a,
+.wrapper nav #comment:checked ~ label.comment a,
+.wrapper nav #envelope:checked ~ label.envelope a,
+.wrapper nav #heart:checked ~ label.heart a{
+    color: #fff;
+    /* 这里字体颜色改变也需要加个动画过渡 */
+    transition: 0.6s;
+}
+.wrapper nav #comment:checked ~ .tab{
+    left: 25%;
+}
+.wrapper nav #envelope:checked ~ .tab{
+    left: 50%;
+}
+.wrapper nav #heart:checked ~ .tab{
+    left: 75%;
+}
+
+
+/*选项卡*/
+
+.XuanXiangKa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+}
+
+ .shell {
+    width: 100vw;
+    height: unset;
+    display: flex;
+    flex-direction: column;
+ }
+
+.shell-top {
+    width: 100%;
+    height: 640px;
+    overflow-x: hidden;/*隐藏x轴滚动条*/
+    overflow-y:hidden;/*隐藏y轴滚动条*/
+    padding-top: -50px;
+}
+
+.shell-top ul {
+    width: 400%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    transition: .3s;
+    left: 0;
+}
+
+.shell-top ul li {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.shell-bottom li {}
+
+
+/*卡片*/
+
+.container{
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 1300px;
+  flex-wrap: nowrap;/*禁用换行*/
+}
+
+.container .card{
+  width: 320px;
+  height: 480px;
+  margin: 20px;
+  padding: 40px 30px;
+  background: #ecdecf;
+  border-radius: 40px;
+  box-shadow: -6px -6px 20px rgba(255, 255, 255, 1),
+              6px 6px 20px rgba(0, 0, 0, .1);
+}
+
+.container .card:hover{
+  box-shadow: inset -6px -6px 10px rgba(255, 255, 255, 0.5),
+              inset 6px 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.container .card .imgBox{
+  position: relative;
+  text-align: right;
+}
+
+.container .card .imgBox img{
+  max-width: 200px;
+}
+
+.container .card .contentBox{
+  position: relative;
+  margin-top: 50px;
+  text-align: left;
+  font-family: '庞门正道细线体';
+}
+
+.container .card .contentBox h2{
+  color: #2c2d48;
+  font-weight: 700;
+  font-size: 2em;
+  letter-spacing: 2px;
+}
+
+.container .card .contentBox p{
+  color: #2c2d48;
+  font-size: 1.2em;
+}
+
+.container .card .contentBox a{
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 40px;
+  color: #2c2d48;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: -4px -4px 15px rgba(255, 255, 255, 1),
+  4px 4px 15px rgba(0, 0, 0, .1);
+}
+
+.container .card .contentBox a:hover{
+  box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.5),
+  inset 4px 4px 10px rgba(0, 0, 0, .1);
+}
+
+.container .card .contentBox a:hover span{
+  display: block;
+  transform: scale(0.98);
+}
+
+.container .card:hover .imgBox,
+.container .card:hover .contentBox{
+  transform: scale(0.98);
+}
+
+.YeWei{
+    text-align: center;
+    font-family: '庞门正道细线体';
+}
+
+
+
+
+

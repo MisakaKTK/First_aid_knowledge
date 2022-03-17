@@ -1,7 +1,9 @@
-/* body{
-  background-image: url(../img/map_w1600_blur.png);
-  background-repeat: no-repeat; 
-} */
+body{
+  border: unset;
+  margin: unset;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
 .background{
     position: fixed;
     height: 150%;
@@ -24,9 +26,6 @@
     height: 100%;
     position: relative;
 }
-/* .UI{
-    ;
-} */
 .UI_left{
     position: absolute;
     background-color: #ecdecf;

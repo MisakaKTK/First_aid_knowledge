@@ -1,9 +1,4 @@
-body{
-    border: unset;
-    margin: unset;
-    overflow: hidden;
-    background-color: #f1f1f1;
-}
+
 .YeTou{
     position: fixed;
     width: 100%;
@@ -20,7 +15,7 @@ body{
 .YeTou>div{
     float: left;
     width: 130px;
-    height: 100%;
+    height: 45px;
     line-height: 45px;
     margin-left: 0px;
     background-color: #f05f5f;
@@ -32,4 +27,12 @@ body{
 .YeTou>div>a:link, .YeTou>div>a:visited, .YeTou>div>a:hover, .YeTou>div>a:active{
     color: white;
     text-decoration: none;
+}
+.YeTou>span{
+    position: absolute;
+    line-height: 45px;
+    text-align: center;
+    font-weight: 500;
+    width: 20%;
+    left: 40%;
 }

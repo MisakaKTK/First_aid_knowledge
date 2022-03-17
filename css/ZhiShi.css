@@ -1,0 +1,423 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+		font-family:'ziti';
+		src: url("../fonts/ziti.ttf") format('truetype');
+		font-weight: normal;
+        font-style: normal;
+	}
+.box .BiaoTi ,.box .NeiRong{
+		font-family: 'ziti';
+		font-size: 64px;
+	}
+.box .NeiRong{
+		font-family: 'ziti';
+		font-size: 1.4em;
+	}
+.box .JiXiao {
+	font-family: 'ziti';
+		font-size:1em;
+}
+body{
+    height: 3000px;
+}
+
+.box{
+    width: auto;
+    height:10000px;
+    background-color: #ecd9cf;
+    margin:0 auto;
+}
+/*.box>div{
+    width: 100%;
+}
+*/
+.YeTou{
+    position: fixed;
+    width: 100%;
+    height: 45px;
+    top: 0;
+    margin: 0;
+    border: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: white;
+    box-shadow: 0px 0px 8px #bdbdbd;
+    display: block;
+    z-index: 5;
+}
+.YeTou>div{
+    float: left;
+    width: 130px;
+    height: 100%;
+    line-height: 45px;
+    margin-left: 0px;
+    background-color: #f05f5f;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 3px #9c9c9c;
+    box-shadow: 0px 0px 3px #b9b9b9;
+}
+.YeTou>div>a:link, .YeTou>div>a:visited, .YeTou>div>a:hover, .YeTou>div>a:active{
+    color: white;
+    text-decoration: none;
+}
+.box .BiaoTi{
+    height: 140px;
+    width: 1150px;
+  
+    background-color: white;
+    margin:auto;
+    line-height: 145px;
+    text-align: center;
+    font-size: 45px;
+    position: relative;
+    display:block;
+
+   
+}
+p{
+	margin: 20px;
+}
+.box .NeiRong{
+	height: 5000px;
+    width: 1150px;
+    background-color: white;
+    position: relative;
+    display:block;
+    margin:auto;
+    margin-top: 1px; 
+    text-align: justify;
+
+}
+.box .a{ 
+	margin: auto;
+	margin-top: 20px; 
+}
+.box .YeXia {
+  display: flex;/*弹性布局*/
+  flex-wrap: nowrap;/*父属性容器，不换行*/
+  background-color: white;
+  width: 1150px;
+  margin: auto;
+  margin-top: 10px; 
+  overflow: hidden;
+}
+.box .JiXiao {
+  background-color:white;
+  width: 900px;
+  height: 300px;
+  margin: 5px;
+  text-align: center;
+  text-align: justify;
+}
+.box .ChangJinHeGengDuo{
+	width: 250px;
+	height: 100px;
+	margin: 5px;
+	background-color: white;
+	display: block;
+
+}
+.box .ChangJin{
+  background-color: white;
+  width: 250px;
+  height: 80px;
+ 
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 5px;
+  font-size: 30px;/*字体大小*/
+  overflow: hidden;/*溢出隐藏*/
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+.box .GengDuo{
+ background-color:white;
+  width: 250px;
+  height: 80px;
+  
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;/*字体大小*/
+  cursor: pointer;
+}
+
+.box .button1{
+	width: 150px;
+	height: 50px;
+  background-color: white; 
+  color: black; 
+  border: 2px solid ;
+}
+.box .button1:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+
+a{
+	color: white;
+}
+.box .button-1{
+  position: relative;
+  background: orangered;
+  border: none;
+  color: white;
+  text-decoration-color: white;
+  padding: 15px 24px;
+  font-size: 1.4rem;
+  outline: none;
+  box-shadow: -6px 6px 0 hsl(16, 100%, 30%);
+}
+.box .button-1::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: -6px;
+  border: 6px solid transparent;
+  border-right: 6px solid hsl(16, 100%, 30%);
+  border-left-width: 0px;
+}
+
+.box .button-1::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: -6px;
+  right: 0;
+  border: 6px solid transparent;
+  border-top: 6px solid hsl(16, 100%, 30%);
+  border-bottom-width: 0px;
+}
+.box .button-1:active {
+  background: hsl(16, 100%, 40%);
+  top: 3px;
+  left: -3px;
+  box-shadow: -3px 3px 0 hsl(16, 100%, 30%);
+}
+.box .button-1:active::before {
+  border: 3px solid transparent;
+  border-right: 3px solid hsl(16, 100%, 30%);
+  border-left-width: 0px;
+  left: -3px;
+}
+
+.box .button-1:active::after {
+  border: 3px solid transparent;
+  border-top: 3px solid hsl(16, 100%, 30%);
+  border-bottom-width: 0px;
+  bottom: -3px;
+}
+
+
+.box .button-2{
+  position: relative;
+  background: orangered;
+  border: none;
+  color: white;
+  text-decoration-color: white;
+  padding: 15px 24px;
+  font-size: 1.4rem;
+  outline: none;
+  box-shadow: -6px 6px 0 hsl(16, 100%, 30%);
+}
+.box .button-2::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: -6px;
+  border: 6px solid transparent;
+  border-right: 6px solid hsl(16, 100%, 30%);
+  border-left-width: 0px;
+}
+
+.box .button-2::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: -6px;
+  right: 0;
+  border: 6px solid transparent;
+  border-top: 6px solid hsl(16, 100%, 30%);
+  border-bottom-width: 0px;
+}
+.box .button-2:active {
+  background: hsl(16, 100%, 40%);
+  top: 3px;
+  left: -3px;
+  box-shadow: -3px 3px 0 hsl(16, 100%, 30%);
+}
+.box .button-2:active::before {
+  border: 3px solid transparent;
+  border-right: 3px solid hsl(16, 100%, 30%);
+  border-left-width: 0px;
+  left: -3px;
+}
+
+.box .button-2:active::after {
+  border: 3px solid transparent;
+  border-top: 3px solid hsl(16, 100%, 30%);
+  border-bottom-width: 0px;
+  bottom: -3px;
+}
+
+
+
+ .arrow{
+        border: 15px solid transparent;/*将border-bottom设为none这样方块的下半边就没有了*/
+        border-bottom-color: #3DA0DB;
+        width: 0px;
+        height: 0px;
+        top:0px
+    }
+    .stick{
+        width: 14px;
+        height: 24px;
+        border-radius: 1px;
+        background-color: #3DA0DB;
+        top:25px;
+    }
+    #HuiDaoDingBu div{
+        position: absolute;
+        margin: auto;
+        right: 0px;
+        left: 0px;
+    }
+    #HuiDaoDingBu{
+        background-color: #dddddd;
+        height: 68px;
+        width: 68px;
+        border-radius: 3px;
+        display: block;
+        cursor: pointer;/*光标*/
+        position: fixed;
+        right: 50px;
+        bottom: 50%;
+        display: none;
+    }
+
+
+.box .AnNiu{
+    position: relative;
+    transition: 0.5s;/*过渡属性*/
+    display: block;
+    width: 1150px;
+    height: 100px;
+    text-align: center;
+    margin: auto;
+ 
+    color: #03e9f4;
+    text-decoration: none;
+    overflow: hidden;
+    
+   
+}
+
+.box .AnNiu:hover{
+    background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #03e9f4,/*阴影*/
+                0 0 5px #03e9f4,
+                0 0 5px #03e9f4,
+                0 0 5px #03e9f4;
+}
+a:link {
+  text-decoration: none;
+}
+
+a span{
+    position: absolute;
+    display: block;
+}
+/*:nth-child(n) 选择器匹配父元素中的第 n 个子元素，元素类型没有限制*/
+a span:nth-child(1){
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg,transparent,#03e9f4);
+    animation: animate1 1s linear infinite; /*名字，完成需要时间，动画曲线Linear从始至终保持动画平速相同，无限次数播放*/
+}
+/*animate 当将动画绑定到某个选择器上时所需要，不然不会产生动画*/
+@keyframes animate1{
+    0%{
+        left: -100%;
+    }
+    50%,100%{
+        left: 100%;
+    }
+}
+a span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#03e9f4);
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+@keyframes animate2{
+    0%{
+        top: -100%;
+    }
+    50%,100%{
+        top: 100%;
+    }
+}
+a span:nth-child(3){
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(270deg,transparent,#03e9f4);
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.50s;
+}
+@keyframes animate3{
+    0%{
+        right: -100%;
+    }
+    50%,100%{
+        right: 100%;
+    }
+}
+
+
+a span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#03e9f4);
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+@keyframes animate4{
+    0%{
+        bottom: -100%;
+    }
+    50%,100%{
+        bottom: 100%;
+    }
+}

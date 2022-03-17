@@ -133,7 +133,7 @@ function print_line() {
             SelectButton[0].disabled = false;
             SelectButton[1].disabled = false;
             SelectButton[2].disabled = false;
-            tips.innerHTML = '请做出选择，或者点击此处继续对话......';
+            tips.innerHTML = '请选择正确的操作！';
         }
         var print = setInterval(function(){
             temp = lines[lines_row][lines_col].substr(0,i);
@@ -163,7 +163,7 @@ function check(ans){
     }
     else if(questions_row == questions.length - 1){
         alert("恭喜你成功完成此情景！");
-        window.open("./HuDong.html", "_self");
+        window.open("./ZhiShi.html", "_self");
     }
     else if(ans * questions[questions_row][0] < 0){
         if (!printing) {
