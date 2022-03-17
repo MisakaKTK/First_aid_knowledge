@@ -6,6 +6,7 @@ setInterval("box.style.height = window.innerHeight + 'px';"
 var text = document.getElementById('text');//获取文本框按钮和图片
 var figure = document.getElementById('UI_figure');
 var SelectButton = document.getElementsByClassName('SelectButton');
+var tips = document.getElementById('tips');
 
 var printing = false;//判断是否在打印文字
 var lines = new Array();//保存台词的二维数组
@@ -15,105 +16,128 @@ var questions = new Array();//保存选项和答案的二维数组
 var questions_row = 0;
 var questions_col = 1;
 
-
 lines[0] = new Array();
-lines[0][0] = '我好难受...有东西...卡住了...呼吸好难......';
-lines[0][1] = '谁能来帮帮我......';
-lines[0][2] = '喉咙......卡住了......';
-lines[0][3] = '喘...喘不上气......';
-lines[0][4] = '(她看上去有些不对劲，试着去帮助她吧)';
+lines[0][0] = '(初次见面，我叫dialog)';
+lines[0][1] = '(也就是你现在在看的这个框框)';
+lines[0][2] = '(先不管我为什么能跟你对话)';
+lines[0][3] = '(你看到那个印堂发黑的人了吗，她好像被食物卡住了气管)';
+lines[0][4] = '(只要你在左边选择正确的行动，就能救下她了吧)';
+lines[0][5] = '(现在做出你认为正确的选择吧)';
 
 lines[1] = new Array();
-lines[1][0] = '呜...你是谁！';
-lines[1][1] = '你要干嘛！';
-lines[1][2] = '...你再过来我报警了啊！';
-lines[1][3] = '......';
-lines[1][4] = '(我们应该尝试去帮助她)';
+lines[1][0] = '我好难受...有东西...卡住了...呼吸好难......';
+lines[1][1] = '谁能来帮帮我......';
+lines[1][2] = '喉咙......卡住了......';
+lines[1][3] = '喘...喘不上气......';
+lines[1][4] = '(她看上去好像被食物卡住了气管，我们试着使用<b>海姆立克法</b>去帮助她吧)';
 
 lines[2] = new Array();
-lines[2][0] = '有变态啊！';
-lines[2][1] = '救命啊！';
-lines[2][2] = '咸湿佬!!咳咳......';
-lines[2][3] = '要...要死了......';
-lines[2][4] = '(总不能放着她不管，救人要紧......)';
+lines[2][0] = '呜...你是谁！';
+lines[2][1] = '你要干嘛！';
+lines[2][2] = '...你再过来我报警了啊！';
+lines[2][3] = '(她好像误会了什么...)';
 
 lines[3] = new Array();
-lines[3][0] = '咳咳！！！';
-lines[3][1] = '呜......';
-lines[3][2] = '咳咳......';
-lines[3][3] = '......';
-lines[3][4] = '(让我们继续)';
+lines[3][0] = '有变态啊！';
+lines[3][1] = '救命啊！';
+lines[3][2] = '咸湿佬!!咳咳......';
+lines[3][3] = '要...要死了......';
+lines[3][4] = '(总不能放着她不管，救人要紧......)';
 
 lines[4] = new Array();
-lines[4][0] = '谢谢你！变态先生！';
-lines[4][1] = '得救了！';
-lines[4][2] = '是你救了我的命！';
-lines[4][3] = '如果不是你来救我，事情就大条啦~';
+lines[4][0] = '咳咳！！！';
+lines[4][1] = '呜...救...';
+lines[4][2] = '咳咳......';
+lines[4][4] = '(让我们继续)';
 
 lines[5] = new Array();
-lines[5][0] = '刚才那个是海姆立克法对吧！真的很有用呢！我也想要用海姆立克法去救别人！！';
-lines[5][1] = '我也想要学习更多急救知识，去帮助更多的人！';
+lines[5][0] = '谢谢你！变态先生！';
+lines[5][1] = '得救了！';
+lines[5][2] = '是你救了我的命！';
+lines[5][3] = '如果不是你来救我，事情就大条啦~';
+lines[5][4] = '(她的态度变得还真快)';
 
+lines[6] = new Array();
+lines[6][0] = '刚才那个是海姆立克法对吧！真的很有用呢！我也想要用海姆立克法去救别人！！';
+lines[6][1] = '我也想要学习更多急救知识，去帮助更多的人！';
+lines[6][2] = '(总之人没事就好)';
 
 questions[0] = new Array();
-questions[0][0] = 1;
-questions[0][1] = "站在她背后，以前腿弓、后腿蹬的姿势站稳";
-questions[0][2] = "站在她面前，以前腿弓、后腿蹬的姿势站稳";
-questions[0][3] = "站在她侧面，以前腿弓、后腿蹬的姿势站稳";
+questions[0][0] = -1;
+questions[0][1] = "我知道了";
+questions[0][2] = "我完全了解了";
+questions[0][3] = "继续吧";
 
 questions[1] = new Array();
-questions[1][0] = 3;
-questions[1][1] = "用两手环绕她的头部";
-questions[1][2] = "用两手环绕她的腿部";
-questions[1][3] = "用两手环绕她的腰部";
+questions[1][0] = 1;
+questions[1][1] = "站在她<b>背后</b>，以前腿弓、后腿蹬的姿势站稳";
+questions[1][2] = "站在她<b>面前</b>，以前腿弓、后腿蹬的姿势站稳";
+questions[1][3] = "站在她<b>侧面</b>，以前腿弓、后腿蹬的姿势站稳";
 
 questions[2] = new Array();
-questions[2][0] = 2;
-questions[2][1] = "握实心拳，用食指侧顶住她腹部左边肚脐上方两横指处，另一手抓住握拳的手";
-questions[2][2] = "握空心拳，用拇指侧顶住她腹部正中线肚脐上方两横指处，另一手抓住握拳的手";
-questions[2][3] = "握空心拳，用小指侧顶住她腹部正中线肚脐下方两横指处，另一手抓住握拳的手";
+questions[2][0] = 3;
+questions[2][1] = "用两手环绕她的<b>头部</b>";
+questions[2][2] = "用两手环绕她的<b>腿部</b>";
+questions[2][3] = "用两手环绕她的<b>腰部</b>";
 
 questions[3] = new Array();
-questions[3][0] = 3;
-questions[3][1] = "快速向内、向下挤压冲击她的腹部。约每秒一次";
-questions[3][2] = "快速向内、向上挤压冲击她的腹部。约每秒十次";
-questions[3][3] = "快速向内、向上挤压冲击她的腹部。约每秒一次";
+questions[3][0] = 2;
+questions[3][1] = "握<b>实心拳</b>，用拇指侧顶住她腹部<b>左边肚脐上方</b>两横指处，另一手抓住握拳的手";
+questions[3][2] = "握<b>空心拳</b>，用拇指侧顶住她腹部<b>正中线肚脐上方</b>两横指处，另一手抓住握拳的手";
+questions[3][3] = "握<b>空心拳</b>，用拇指侧顶住她腹部<b>正中线肚脐下方</b>两横指处，另一手抓住握拳的手";
 
 questions[4] = new Array();
-questions[4][0] = -1;//特殊情况时答案取-1
-questions[4][1] = "不用谢";
-questions[4][2] = "我才不是变态！";
-questions[4][3] = "哪有你这样感谢别人的......";
+questions[4][0] = 3;
+questions[4][1] = "快速向内、<b>向下挤压</b>冲击她的腹部。约<b>每秒一次</b>";
+questions[4][2] = "快速向内、<b>向上挤压</b>冲击她的腹部。约<b>每秒十次</b>";
+questions[4][3] = "快速向内、<b>向上挤压</b>冲击她的腹部。约<b>每秒一次</b>";
 
 questions[5] = new Array();
-questions[5][0] = -1;
-questions[5][1] = "一起加油！";
-questions[5][2] = "不要再乱叫别人变态就好了";
-questions[5][3] = "随便你吧...";
+questions[5][0] = -1;//特殊情况时答案取-1
+questions[5][1] = "不用谢";
+questions[5][2] = "我才不是变态！";
+questions[5][3] = "哪有你这样感谢别人的......";
+
+questions[6] = new Array();
+questions[6][0] = -1;
+questions[6][1] = "让我们一起加油！";
+questions[6][2] = "不要再乱叫别人变态就好了";
+questions[6][3] = "随便你吧...";
 
 SelectButton[0].innerHTML = questions[0][1]; //初始化选择按钮
 SelectButton[1].innerHTML = questions[0][2];
 SelectButton[2].innerHTML = questions[0][3];
+SelectButton[0].disabled = true;
+SelectButton[1].disabled = true;
+SelectButton[2].disabled = true;
 
 function print_line() {
     if(!printing){
         printing = true;
-        figure.style.setProperty('animation', 'tada 0.8s');
-        figure.style.setProperty('-moz-animation', 'tada 0.8s');
-        figure.style.setProperty('-webkit-animation', 'tada 0.8s');
-        figure.addEventListener("animationend", function name() {
-            figure.style.removeProperty('animation');
-            figure.style.removeProperty('-moz-animation');
-            figure.style.removeProperty('-webkit-animation');
-        });
+        if(lines_row != 0){
+            figure.style.setProperty('animation', 'tada 0.8s');
+            figure.style.setProperty('-moz-animation', 'tada 0.8s');
+            figure.style.setProperty('-webkit-animation', 'tada 0.8s');
+            figure.addEventListener("animationend", function name() {
+                figure.style.removeProperty('animation');
+                figure.style.removeProperty('-moz-animation');
+                figure.style.removeProperty('-webkit-animation');
+            });
+        }
         let i = 1;
         let temp;
         if(lines_col > lines[lines_row].length - 1){
             lines_col = 0;
         }
+        else if(lines_col > lines[lines_row].length - 2){
+            SelectButton[0].disabled = false;
+            SelectButton[1].disabled = false;
+            SelectButton[2].disabled = false;
+            tips.innerHTML = '请做出选择，或者点击此处继续对话......';
+        }
         var print = setInterval(function(){
             temp = lines[lines_row][lines_col].substr(0,i);
-            text.innerText = temp;
+            text.innerHTML = temp;
             i++;
             if (i > lines[lines_row][lines_col].length) {
                 clearInterval(print);
@@ -126,7 +150,7 @@ function print_line() {
 
 function check(ans){
     if(ans == questions[questions_row][0]){
-        if(questions_row == 3 && !printing){
+        if(questions_row == 4 && !printing){   //在特定对话时插入演出
             perform();
         }
         else if (!printing) {
@@ -197,9 +221,6 @@ function switch_questions_row() {
         SelectButton[2].style.setProperty('animation', 'appear 1s');
         SelectButton[2].style.setProperty('-moz-animation', 'appear 1s');
         SelectButton[2].style.setProperty('-webkit-animation', 'appear 1s');
-        SelectButton[0].disabled = false;
-        SelectButton[1].disabled = false;
-        SelectButton[2].disabled = false;
         SelectButton[2].addEventListener("animationend", function name() {
             SelectButton[0].style.removeProperty('animation');
             SelectButton[0].style.removeProperty('-moz-animation');
@@ -215,19 +236,23 @@ function switch_questions_row() {
     
 }
 function switch_text_row() {
-    let i = 1;
-    let temp;
-    lines_col = 0;
-    var print = setInterval(function(){
-        temp = lines[lines_row][0].substr(0,i);
-        text.innerText = temp;
-        i++;
-        if (i > lines[lines_row][0].length) {
-            clearInterval(print);
-            printing = false;
-            lines_col++;
-        }
-    }, 50);
+    if (!printing) {
+        printing = true;
+        let i = 1;
+        let temp;
+        lines_col = 0;
+        tips.innerHTML = '点击此处继续对话......';
+        var print = setInterval(function(){
+            temp = lines[lines_row][0].substr(0,i);
+            text.innerHTML = temp;
+            i++;
+            if (i > lines[lines_row][0].length) {
+                clearInterval(print);
+                printing = false;
+                lines_col++;
+            }
+        }, 50);
+    }    
 }
 function print_str(str, time) {
     if(!printing){
@@ -238,7 +263,7 @@ function print_str(str, time) {
             if (str.substr(0,i)) {
                 temp = str.substr(0,i);
             } 
-            text.innerText = temp;
+            text.innerHTML = temp;
             i++;
             if (i > time) {
                 clearInterval(print);
@@ -307,10 +332,6 @@ function perform() {
                     switch_text_row();
                     switch_figure();
                     switch_questions_row();
-                
-                    SelectButton[0].disabled = false;
-                    SelectButton[1].disabled = false;
-                    SelectButton[2].disabled = false;
             });
     });
     

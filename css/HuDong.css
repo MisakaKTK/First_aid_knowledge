@@ -1,7 +1,7 @@
-/* body{
+body{
     background-image: url(../img/map_w1600_blur.png);
     background-repeat: no-repeat; 
-} */
+}
 .background{
     position: fixed;
     height: 150%;
@@ -47,8 +47,7 @@
     border: unset;
     border-radius: 20px;
     word-wrap: break-word;
-    font-size: medium;
-    font-weight: bold;
+    font-size: larger;
     background-color: #ceab87;
     box-shadow: 0px 0px 3px #997043;
     transition: all 0.5s;
