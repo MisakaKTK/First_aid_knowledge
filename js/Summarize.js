@@ -54,3 +54,16 @@ function get_paper() {//从url获取答案
         text_paper[index] = window.location.search.substr(1).match(reg)[2];
     }
 }
+for(let i=0;i<4;i++)
+{
+if(text_paper[1]==questions[1])
+{
+    // document.getElementById('q1').
+    document.getElementsByClassName('q1')[i].innerHTML=questions[i+1][text_paper[i+1]];
+    document.getElementsByClassName('h1')[i].innerHTML="<b>回答正确</b>";
+}
+else{
+    document.getElementsByClassName('q1')[i].innerHTML=questions[i+1][text_paper[i+1]];
+    document.getElementsByClassName('h1')[i].innerHTML="<b color=‘red’>回答错误</b>"
+}
+}

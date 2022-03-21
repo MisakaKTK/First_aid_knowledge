@@ -3,14 +3,19 @@
     "version": "0.1.0",
     "configurations": [
         {
-            "name": "Launch localhost",
-            "type": "chrome",
+            "name": "1",
             "request": "launch",
-            "file": "${workspaceRoot}/ShouYe.html",
-            //"file": "${workspaceRoot}/HuDong.html",
-            "runtimeExecutable": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\Chrome.exe",
-            //"url": "http://localhost/mypage.html",
-            "webRoot": "${workspaceFolder}/wwwroot"
+            "type": "pwa-chrome",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
         },
+        {
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "request": "attach",
+            "type": "pwa-chrome",
+            "file": "${workspaceRoot}/index.html",
+            "webRoot": "${workspaceFolder}"
+        }
     ]
 }
