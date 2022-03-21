@@ -10,11 +10,15 @@ var tips = document.getElementById('tips');
 
 var printing = false;//判断是否在打印文字
 var lines = new Array();//保存台词的二维数组
-var lines_row = 0;
+var row = 0;
 var lines_col = 0;
 var questions = new Array();//保存选项和答案的二维数组
-var questions_row = 0;
 var questions_col = 1;
+var text_paper = new Array(7);//保存用户答题结果
+for (let index = 0; index < text_paper.length; index++) {
+    text_paper[index] = 0;
+}
+
 
 //台词
 lines[0] = new Array();
@@ -113,10 +117,10 @@ SelectButton[0].disabled = true;
 SelectButton[1].disabled = true;
 SelectButton[2].disabled = true;
 
-function print_line() {
+function print_line() {//点击对话框从台词库更新台词
     if(!printing){
         printing = true;
-        if(lines_row != 0){
+        if(row != 0){//给小人添加动画
             figure.style.setProperty('animation', 'tada 0.8s');
             figure.style.setProperty('-moz-animation', 'tada 0.8s');
             figure.style.setProperty('-webkit-animation', 'tada 0.8s');
@@ -128,76 +132,81 @@ function print_line() {
         }
         let i = 1;
         let temp;
-        if(lines_col > lines[lines_row].length - 1){
+        if(lines_col > lines[row].length - 1){//看完一遍之后循环播放
             lines_col = 0;
         }
-        else if(lines_col > lines[lines_row].length - 2){
+        else if(lines_col > lines[row].length - 2){//不看完一遍不能选
             SelectButton[0].disabled = false;
             SelectButton[1].disabled = false;
             SelectButton[2].disabled = false;
-            tips.innerHTML = '请选择正确的操作！';
+            tips.innerHTML = '请选择正确的操作！';//看完一遍之后给用户提示选择
         }
-        var print = setInterval(function(){
-            temp = lines[lines_row][lines_col].substr(0,i);
-            text.innerHTML = temp;
-            i++;
-            if (i > lines[lines_row][lines_col].length) {
-                clearInterval(print);
-                printing = false;
-                lines_col++;
-            }
-        }, 50);
+        printing = false;
+        print_str(lines[row][lines_col], lines[row][lines_col].length);//打印台词文本
+        lines_col++;
+        // var print = setInterval(function(){//逐个打印台词文字
+        //     temp = lines[row][lines_col].substr(0,i);
+        //     text.innerHTML = temp;
+        //     i++;
+        //     if (i > lines[row][lines_col].length) {
+        //         clearInterval(print);
+        //         printing = false;
+        //         lines_col++;
+        //     }
+        // }, 50);
     }
 }
 
 function check(ans){
-    if(ans == questions[questions_row][0]){
-        if(questions_row == 4 && !printing){   //在特定对话时插入演出
+    if(text_paper[row] == 0){
+        text_paper[row] = ans;//只有第一次答题时记录答案
+    }
+    if(ans == questions[row][0]){//答对时
+        if(row == 4 && !printing){   //在特定对话时插入演出
             perform();
         }
-        else if (!printing) {
-            questions_row++;
-            lines_row++;
+        else if (!printing) {//答对了就切换问题和台词和人物图片
+            row++;
             switch_figure();
             switch_questions_row();
             switch_text_row();
         }
     }
-    else if(questions_row == questions.length - 1){
-        alert("恭喜你成功完成此情景！");
-        window.open("./ZhiShi.html", "_self");
+    else if(row == questions.length - 1){//完成整个场景
+        row = -1;
+        print_str("恭喜你成功完成此情景！请查看总结", 60);
+        
     }
-    else if(ans * questions[questions_row][0] < 0){
+    else if(ans * questions[row][0] < 0){//怎么选都行走这边
         if (!printing) {
-            questions_row++;
-            lines_row++;
+            row++;
             switch_figure();
             switch_questions_row();
             switch_text_row();
         }
     }
     else{
-        print_str('(似乎没有什么作用，试试使用其他方法吧)','(似乎没有什么作用，试试使用其他方法吧)'.length);
+        print_str('(似乎没有什么作用，试试使用其他方法吧)','(似乎没有什么作用，试试使用其他方法吧)'.length);//答错显示提示
     }
 }
-function switch_figure() {
-    figure.style.setProperty('animation', 'fade 0.5s');
+function switch_figure() {//通过控制row来按顺序切换图片
+    figure.style.setProperty('animation', 'fade 0.5s');//特效
     figure.style.setProperty('-moz-animation', 'fade 0.5s');
     figure.style.setProperty('-webkit-animation', 'fade 0.5s');
     figure.addEventListener("animationend", function name() {
-        figure.src = "img/UI_figure" + questions_row + ".png";
+        figure.src = "img/UI_figure" + row + ".png";
         figure.style.setProperty('animation', 'appear 0.5s');
         figure.style.setProperty('-moz-animation', 'appear 0.5s');
         figure.style.setProperty('-webkit-animation', 'appear 0.5s');
     });
-    figure.addEventListener("nimationend", function name() {
-        figure.style.removeProperty('animation');
-        figure.style.removeProperty('-moz-animation');
-        figure.style.removeProperty('-webkit-animation');
-    });
+    // figure.addEventListener("animationend", function name() {
+    //     figure.style.removeProperty('animation');
+    //     figure.style.removeProperty('-moz-animation');
+    //     figure.style.removeProperty('-webkit-animation');
+    // });
     
 }
-function switch_questions_row() {
+function switch_questions_row() {//切换选项
     SelectButton[0].disabled = true;
     SelectButton[1].disabled = true;
     SelectButton[2].disabled = true;
@@ -211,8 +220,8 @@ function switch_questions_row() {
     SelectButton[2].style.setProperty('-moz-animation', 'fade 1s');
     SelectButton[2].style.setProperty('-webkit-animation', 'fade 1s');
     SelectButton[0].addEventListener("animationend", function name() {
-        for (questions_col = 1; questions_col < questions[questions_row].length; questions_col++) {
-            SelectButton[questions_col-1].innerHTML = questions[questions_row][questions_col];
+        for (questions_col = 1; questions_col < questions[row].length; questions_col++) {
+            SelectButton[questions_col-1].innerHTML = questions[row][questions_col];
         }
         SelectButton[0].style.setProperty('animation', 'appear 0.6s');
         SelectButton[0].style.setProperty('-moz-animation', 'appear 0.6s');
@@ -223,32 +232,32 @@ function switch_questions_row() {
         SelectButton[2].style.setProperty('animation', 'appear 1s');
         SelectButton[2].style.setProperty('-moz-animation', 'appear 1s');
         SelectButton[2].style.setProperty('-webkit-animation', 'appear 1s');
-        SelectButton[2].addEventListener("animationend", function name() {
-            SelectButton[0].style.removeProperty('animation');
-            SelectButton[0].style.removeProperty('-moz-animation');
-            SelectButton[0].style.removeProperty('-webkit-animation');
-            SelectButton[1].style.removeProperty('animation');
-            SelectButton[1].style.removeProperty('-moz-animation');
-            SelectButton[1].style.removeProperty('-webkit-animation');
-            SelectButton[2].style.removeProperty('animation');
-            SelectButton[2].style.removeProperty('-moz-animation');
-            SelectButton[2].style.removeProperty('-webkit-animation');
-        });
+        // SelectButton[2].addEventListener("animationend", function name() {
+        //     SelectButton[0].style.removeProperty('animation');
+        //     SelectButton[0].style.removeProperty('-moz-animation');
+        //     SelectButton[0].style.removeProperty('-webkit-animation');
+        //     SelectButton[1].style.removeProperty('animation');
+        //     SelectButton[1].style.removeProperty('-moz-animation');
+        //     SelectButton[1].style.removeProperty('-webkit-animation');
+        //     SelectButton[2].style.removeProperty('animation');
+        //     SelectButton[2].style.removeProperty('-moz-animation');
+        //     SelectButton[2].style.removeProperty('-webkit-animation');
+        // });
     });
     
 }
-function switch_text_row() {
+function switch_text_row() {//切换对话
     if (!printing) {
         printing = true;
         let i = 1;
         let temp;
         lines_col = 0;
         tips.innerHTML = '点击此处继续对话......';
-        var print = setInterval(function(){
-            temp = lines[lines_row][0].substr(0,i);
+        var print = setInterval(function(){//逐字打印对话台词
+            temp = lines[row][0].substr(0,i);
             text.innerHTML = temp;
             i++;
-            if (i > lines[lines_row][0].length) {
+            if (i > lines[row][0].length) {
                 clearInterval(print);
                 printing = false;
                 lines_col++;
@@ -256,12 +265,12 @@ function switch_text_row() {
         }, 50);
     }    
 }
-function print_str(str, time) {
+function print_str(str, time) {//逐字打印字符串
     if(!printing){
         printing = true;
         let temp;
         let i = 1;
-        var print = setInterval(function(){
+        var print = setInterval(function(){//每40ms输出一个字
             if (str.substr(0,i)) {
                 temp = str.substr(0,i);
             } 
@@ -270,12 +279,23 @@ function print_str(str, time) {
             if (i > time) {
                 clearInterval(print);
                 printing = false;
+                if (row == -1) {
+                    let url = "./Summarize.html";
+                    let char = '?';
+                    for (let index = 0; index < text_paper.length; index++) {
+                        if(index != 0){
+                            char = '&';
+                        }
+                        url = url + char + "text_paper"+ index + '=' + text_paper[index];
+                    }
+                    window.open(url, "_blank");
+                }
             }
-        }, 40);
+        }, 50);
     }
 }
 
-function perform() {
+function perform() {//特殊动画特效
     //按钮闪三下
     SelectButton[0].disabled = true;
     SelectButton[1].disabled = true;
@@ -298,9 +318,9 @@ function perform() {
     figure.style.setProperty('-webkit-animation', 'cough 2s');
     //咳嗽完，发抖一下
     figure.addEventListener("animationend", function name() {
-            figure.style.removeProperty('animation');
-            figure.style.removeProperty('-moz-animation');
-            figure.style.removeProperty('-webkit-animation');
+            // figure.style.removeProperty('animation');
+            // figure.style.removeProperty('-moz-animation');
+            // figure.style.removeProperty('-webkit-animation');
 
             figure.style.setProperty('animation', 'tada 1s');
             figure.style.setProperty('-moz-animation', 'tada 1s');
@@ -327,8 +347,7 @@ function perform() {
                     dialog.style.removeProperty('-moz-animation');
                     dialog.style.removeProperty('-webkit-animation');
                     printing = false;
-                    questions_row++;
-                    lines_row++;
+                    row++;
                     switch_text_row();
                     switch_figure();
                     switch_questions_row();

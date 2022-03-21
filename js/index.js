@@ -171,10 +171,10 @@ function print_str(str, time, type) {
                 clearInterval(print);
                 printing = false;
                 if(type == 1){
-                    window.open('./JiJiuZhiShiYe.html', '_self');
+                    window.open('./Knowledge.html', '_self');
                 }
                 else if(type == 2){
-                    window.open('./HuDong.html', '_self');
+                    window.open('./interactive.html', '_self');
                 }
             }
         }, 50);
