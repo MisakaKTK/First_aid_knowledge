@@ -4,21 +4,21 @@
     box-sizing: border-box;
 }
 @font-face {
-		font-family:'ziti';
-		src: url("../fonts/ziti.ttf") format('truetype');
+		font-family:'庞门正道细线体';
+		src: url("../fonts/庞门正道细线体.ttf") format('truetype');
 		font-weight: normal;
         font-style: normal;
 	}
 .box .BiaoTi ,.box .NeiRong{
-		font-family: 'ziti';
+		font-family: '庞门正道细线体';
 		font-size: 64px;
 	}
 .box .NeiRong{
-		font-family: 'ziti';
+		font-family: '庞门正道细线体';
 		font-size: 1.4em;
 	}
 .box .JiXiao {
-	font-family: 'ziti';
+	font-family: '庞门正道细线体';
 		font-size:1em;
 }
 body{
@@ -67,7 +67,7 @@ body{
 }
 .box .BiaoTi{
     height: 140px;
-    width: 1150px;
+    width: 80%;
   
     background-color: white;
     margin:auto;
@@ -83,8 +83,8 @@ p{
 	margin: 20px;
 }
 .box .NeiRong{
-	height: 5000px;
-    width: 1150px;
+	height: 800px;
+    width: 80%;
     background-color: white;
     position: relative;
     display:block;
@@ -101,7 +101,7 @@ p{
   display: flex;/*弹性布局*/
   flex-wrap: nowrap;/*父属性容器，不换行*/
   background-color: white;
-  width: 1150px;
+  width: 80%;
   margin: auto;
   margin-top: 10px; 
   overflow: hidden;
@@ -312,7 +312,7 @@ a{
         display: block;
         cursor: pointer;/*光标*/
         position: fixed;
-        right: 50px;
+        right: 1%;
         bottom: 50%;
         display: none;
     }

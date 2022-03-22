@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-    <title>急救指南</title>
+    <title>首页</title>
     <link rel="stylesheet" href="css/Knowledge.css">
-    <link rel="stylesheet" href="css/Header.css">
+
 </head>
 
 <body style="background-color:#f4eae1;">
     <div class="YeTou">
         <div><a href="index.html" target="_self">急救知识</a></div>
-        <span>急救指南</span>
     </div>
 
 
-    <div class="banner"><!-- banner页划分 -->
+    <div class="banner" ><!-- banner页划分 -->
 
 
         <div class="left">
@@ -35,11 +34,12 @@
 
         </div>
 
-        <div class="right">
+        <div class="left">
 
-            <img src="img/医疗动图无背景.gif" width="816" height="612">
+            <img src="img/医疗动图无背景.gif"  width="100%" height="100%">
             
         </div>
+
     </div>
 
 
@@ -57,34 +57,39 @@
     </div>
 
     <div class="XuanXiangKa">
-            <div class="shell">
-                <ul class="shell-bottom">
+            <div class="box">
+                <ul class="navbox">
                     <div class="DaoHangLan">
                         <div class="wrapper">
-                        <nav>
+                        <nav> <!-- 定义导航链接 -->
                             <input type="radio" name="tab" id="home" checked>
-                            <input type="radio" name="tab" id="comment">
-                            <input type="radio" name="tab" id="envelope">
+                            <input type="radio" name="tab" id="life">
+                            <input type="radio" name="tab" id="outdoor">
                             <input type="radio" name="tab" id="heart">
+                            <!-- radio定义表单中的单选按钮 -->
                            
                             <label for="home" class="list home">
                                 <a href="#"><i aria-hidden="true"></i>急救汇总</a>
                             </label>
+                            <!-- aria-hidden将i元素隐藏，此处i标签仅做定位作业无其他实义，因此隐藏 -->
                 
                            
-                            <label for="comment" class="list comment">
+                            <label for="life" class="list life">
                                 <a href="#"><i aria-hidden="true"></i>生活急救</a>
                             </label>
+                            <!-- aria-hidden将i元素隐藏，此处i标签仅做定位作业无其他实义，因此隐藏 -->
                            
                            
-                            <label for="envelope" class="list envelope">
+                            <label for="outdoor" class="list outdoor">
                                 <a href="#"><i aria-hidden="true"></i>户外急救</a>
                             </label>
+                            <!-- aria-hidden将i元素隐藏，此处i标签仅做定位作业无其他实义，因此隐藏 -->
                             
                            
                             <label for="heart" class="list heart">
                                 <a href="#"><i aria-hidden="true"></i>急症急救</a>
                             </label>
+                            <!-- aria-hidden将i元素隐藏，此处i标签仅做定位作业无其他实义，因此隐藏 -->
                            
                 <div class="tab"></div>
                 </nav>
@@ -92,7 +97,7 @@
                 </div>
             </ul>
 
-            <div class="shell-top">
+            <div class="cardbox">
                 <ul class="main">
                     <li>
                         <div class="container">
@@ -260,16 +265,15 @@
     <br><br>
 
     <script>
-        let list = document.querySelectorAll(".list")
-        let main = document.querySelector(".main")
+        let list = document.querySelectorAll(".list") /*获取list里的所有元素*/
+        let main = document.querySelector(".main") /*获取main里的所有元素*/
         for (let i = 0; i < list.length; i++) {
             list[i].addEventListener("click", () => {
                 main.style.left = (i * -100) + "%"
-                // 点击第一个的时候i是0，又因为在if判断里面0为false,所以当i为1或2的时候触发背景渐变
-                // 再在判断里加一层三目表达式，分别判断i等等于1和i等等于2时的背景色
                 
             })
         }
+        
     </script>
 
 </body>
