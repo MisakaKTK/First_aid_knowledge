@@ -56,7 +56,7 @@ function get_paper() {//从url获取答案
 }
 for(let i=0;i<4;i++)
 {
-if(Number(text_paper[i])==questions[i][0])
+if(Number(text_paper[i+1])== questions[i+1][0])
 {
     // document.getElementById('q1').
     document.getElementsByClassName('q1')[i].innerHTML=questions[i+1][text_paper[i+1]];
